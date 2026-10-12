@@ -12,14 +12,22 @@ st.set_page_config(
 
 
 # Função para carregar os dados do banco SQLite com cache para otimizar performance
+import os
+import sqlite3
+import pandas as pd
+import streamlit as st
+
+# Garante o caminho correto para o banco no Linux/Streamlit Cloud
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "seu_banco.db") # substitua pelo nome do seu arquivo .db
+
 @st.cache_data
 def carregar_dados():
-  conexao = sqlite3.connect("data/canal_moisas.db")
-  df = pd.read_sql_query("SELECT * FROM tb_videos_canal", conexao)
-  conexao.close()
-  # Converte a coluna de data para o formato datetime do Pandas
-  df["data_publicacao"] = pd.to_datetime(df["data_publicacao"])
-  return df
+    conexao = sqlite3.connect(DB_PATH)
+    query = "SELECT * FROM tb_videos_canal"
+    df = pd.read_sql_query(query, conexao)
+    conexao.close()
+    return df
 
 
 df = carregar_dados()
