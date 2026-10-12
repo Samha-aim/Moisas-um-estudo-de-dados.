@@ -5,7 +5,7 @@ import streamlit as st
 
 # Configuração da página do Streamlit (deve ser o primeiro comando do Streamlit)
 st.set_page_config(
-    page_title="Dashboard - Canal do Moisas",
+    page_title="Dashboard - Canal do Moises",
     page_icon="📊",
     layout="wide",
 )
@@ -25,7 +25,7 @@ def carregar_dados():
 df = carregar_dados()
 
 # --- TÍTULO PRINCIPAL ---
-st.title("📊 Dashboard Analítico - Canal do Moisas")
+st.title("📊 Dashboard Analítico - Canal do Moises")
 st.markdown(
     "Este painel interativo consome os dados extraídos da YouTube Data API"
     " armazenados no banco SQLite."
