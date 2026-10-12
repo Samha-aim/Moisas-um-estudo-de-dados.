@@ -17,7 +17,7 @@ st.set_page_config(
 
 # Garante o caminho correto para o banco no Linux/Streamlit Cloud
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "data" / "canal_moisas.db") 
+DB_PATH = os.path.join(BASE_DIR, "data", "canal_moisas.db") 
 
 @st.cache_data
 def carregar_dados():
