@@ -1,3 +1,4 @@
+import os
 import sqlite3
 import pandas as pd
 import plotly.express as px
@@ -11,15 +12,12 @@ st.set_page_config(
 )
 
 
-# Função para carregar os dados do banco SQLite com cache para otimizar performance
-import os
-import sqlite3
-import pandas as pd
-import streamlit as st
+
+
 
 # Garante o caminho correto para o banco no Linux/Streamlit Cloud
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "seu_banco.db") # substitua pelo nome do seu arquivo .db
+DB_PATH = os.path.join(BASE_DIR, "data" / "canal_moisas.db") 
 
 @st.cache_data
 def carregar_dados():
