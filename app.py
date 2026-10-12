@@ -15,7 +15,7 @@ st.set_page_config(
 @st.cache_data
 def carregar_dados():
   conexao = sqlite3.connect("data/canal_moisas.db")
-  df = pd.read_sql_query("SELECT * FROM video_id", conexao)
+  df = pd.read_sql_query("SELECT * FROM tb_videos_canal", conexao)
   conexao.close()
   # Converte a coluna de data para o formato datetime do Pandas
   df["data_publicacao"] = pd.to_datetime(df["data_publicacao"])
